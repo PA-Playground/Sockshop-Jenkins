@@ -7,13 +7,12 @@ node {
    }
 
    stage('Build and deploy orders') {
-
+       sh "$(aws ecr get-login --no-include-email --region eu-west-1)"
        sh "docker build -t orders-repo -f docker/orders.net/Dockerfile ."
 
    }
    
    stage('Push to AWS repo') {
-       $(aws ecr get-login --no-include-email --region eu-west-1)
        sh "docker tag orders-repo:latest 826081382146.dkr.ecr.eu-west-1.amazonaws.com/orders-repo:latest"
        sh "docker push 826081382146.dkr.ecr.eu-west-1.amazonaws.com/orders-repo:latest"
    }
