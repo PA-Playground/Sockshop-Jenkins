@@ -1,1 +1,15 @@
-docker build -f docker/orders.net/Dockerfile .
+node {
+
+   stage('Clone orders.NET from github') {
+
+       git 'https://github.com/PA-Playground/orders.NET.git'
+
+   }
+
+   stage('Build and deploy orders.NET') {
+
+       sh "docker build -f docker/orders.net/Dockerfile ."
+
+   }
+
+}
