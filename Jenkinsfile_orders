@@ -8,7 +8,7 @@ node {
 
    stage('Build and deploy orders.NET') {
 
-       sh "docker build -f docker/orders.net/Dockerfile ."
+       sh "docker build -t orders-net-repo -f docker/orders.net/Dockerfile ."
 
    }
    
