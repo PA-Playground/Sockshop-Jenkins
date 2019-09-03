@@ -2,13 +2,13 @@ node {
 
    stage('Clone orders from github') {
 
-       git 'https://github.com/PA-Playground/orders.git'
+       git 'https://github.com/PA-Playground/orders.NET.git'
 
    }
 
    stage('Build and deploy orders') {
 
-       sh "docker build -t orders-repo -f docker/orders/Dockerfile ."
+       sh "docker build -t orders-repo -f docker/orders.net/Dockerfile ."
 
    }
    
