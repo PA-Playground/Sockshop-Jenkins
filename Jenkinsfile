@@ -7,9 +7,9 @@ node {
    }
 
    stage('Build and deploy Sockshop') {
-      withDockerRegistry(credentialsId: 'ecr:eu-west-1:aws_access_id', url: 'https://826081382146.dkr.ecr.eu-west-1.amazonaws.com') {
+      //withDockerRegistry(credentialsId: 'ecr:eu-west-1:aws_access_id', url: 'https://826081382146.dkr.ecr.eu-west-1.amazonaws.com') {
        sh "docker-compose -f deploy/docker-compose/docker-compose.yml up -d"
-      }
+      //}
    }
 
 }
